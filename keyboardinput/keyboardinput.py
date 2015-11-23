@@ -86,3 +86,6 @@ class KeyboardInput(threading.Thread):
             return self.queue.get(block=True, timeout=timeout)
         except Queue.Empty:
             return None
+
+    def data_available(self):
+        return not self.queue.empty()
