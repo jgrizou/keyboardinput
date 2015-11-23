@@ -25,12 +25,6 @@ class KeyboardInput(threading.Thread):
         self.interrupt_code = interrupt_code
         self.queue = Queue.Queue()
 
-    def __del__(self):
-        self.stop()
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        self.stop()
-
     def stop(self):
         self.interrupted.release()
 
